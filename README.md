@@ -10,9 +10,9 @@ https://sstk.vercel.app/
 
 ## 起動
 
-`$ yarn run start`\
+`$ npm run start`\
 http://localhost:9000/
 
 ## ビルド
 
-`$ yan run build`
+`$ npm run build`
