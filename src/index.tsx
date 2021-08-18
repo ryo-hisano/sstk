@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import ReactCrop from "react-image-crop";
-import useLongPress from "./useLongPress";
 import { generateDownload, getSizeStr } from "./functions";
 import "react-image-crop/dist/ReactCrop.css";
 import "./styles.css";
@@ -27,19 +26,6 @@ const App = () => {
   const [size, setSize] = useState<any>(null);
   const previewWidth = useRef(0);
   const previewHeight = useRef(0);
-
-  // 長押し判定
-  const handleLongPressMinus1 = useLongPress(cropImage.bind(undefined, previewCanvasRef.current, null, null, -1), 500);
-
-  const handleLongPressMinus10 = useLongPress(cropImage.bind(undefined, previewCanvasRef.current, null, null, -10), 500);
-
-  const handleLongPressMinus100 = useLongPress(cropImage.bind(undefined, previewCanvasRef.current, null, null, -100), 500);
-
-  const handleLongPressPlus1 = useLongPress(cropImage.bind(undefined, previewCanvasRef.current, null, null, 1), 500);
-
-  const handleLongPressPlus10 = useLongPress(cropImage.bind(undefined, previewCanvasRef.current, null, null, 10), 500);
-
-  const handleLongPressPlus100 = useLongPress(cropImage.bind(undefined, previewCanvasRef.current, null, null, 100), 500);
 
   // ファイル選択時
   const onSelectFile = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -255,7 +241,7 @@ const App = () => {
           <li>
             <button
               type="button"
-              {...handleLongPressMinus100}
+              onClick={cropImage.bind(undefined, previewCanvasRef.current, null, null, -100)}
               onContextMenu={(e) => {
                 e.preventDefault();
               }}
@@ -266,7 +252,7 @@ const App = () => {
           <li>
             <button
               type="button"
-              {...handleLongPressMinus10}
+              onClick={cropImage.bind(undefined, previewCanvasRef.current, null, null, -10)}
               onContextMenu={(e) => {
                 e.preventDefault();
               }}
@@ -277,7 +263,7 @@ const App = () => {
           <li>
             <button
               type="button"
-              {...handleLongPressMinus1}
+              onClick={cropImage.bind(undefined, previewCanvasRef.current, null, null, -1)}
               onContextMenu={(e) => {
                 e.preventDefault();
               }}
@@ -288,7 +274,7 @@ const App = () => {
           <li>
             <button
               type="button"
-              {...handleLongPressPlus1}
+              onClick={cropImage.bind(undefined, previewCanvasRef.current, null, null, 1)}
               onContextMenu={(e) => {
                 e.preventDefault();
               }}
@@ -299,7 +285,7 @@ const App = () => {
           <li>
             <button
               type="button"
-              {...handleLongPressPlus10}
+              onClick={cropImage.bind(undefined, previewCanvasRef.current, null, null, 10)}
               onContextMenu={(e) => {
                 e.preventDefault();
               }}
@@ -310,7 +296,7 @@ const App = () => {
           <li>
             <button
               type="button"
-              {...handleLongPressPlus100}
+              onClick={cropImage.bind(undefined, previewCanvasRef.current, null, null, 100)}
               onContextMenu={(e) => {
                 e.preventDefault();
               }}
